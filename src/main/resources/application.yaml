@@ -1,0 +1,50 @@
+server:
+  servlet:
+    context-path: /api/v1
+  port: 8080
+  shutdown: graceful
+
+spring:
+  application:
+    name: Order Service Challenge
+    version: 1.0.0
+  banner:
+    location: classpath:banner.txt
+  profiles:
+    active: Development
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        linger.ms: 5
+        retries: 3
+        acks: all
+        enable.idempotence: true
+        compression.type: snappy
+    consumer:
+      group-id: order-service-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+  data:
+    mongodb:
+      uri: mongodb://mongo:27017/order-service
+
+logging:
+  level:
+    org.apache.kafka: INFO
+    org.mongodb.driver: INFO
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+    resolve-schema-properties: true
+  override-with-generic-response: false
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json

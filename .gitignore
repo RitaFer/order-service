@@ -1,0 +1,64 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+*.out
+*.err
+
+# Maven directories
+.mvn/
+target/
+
+# Gradle directories
+.gradle/
+build/
+
+# Eclipse files
+*.pydevproject
+.project
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+.localhistory/
+.loadpath
+
+# IDEA files
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code files
+.vscode/
+
+# IntelliJ IDEA artifact files
+*.ipr
+*.iws
+*.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Application properties
+application.properties
+application.yml
+
+# Environment files
+.env
+
+# JAR/WAR files
+*.jar
+*.war
+
+# Package-lock for node_modules (if any)
+package-lock.json
+
+# Other
+*.db
+*.pid
